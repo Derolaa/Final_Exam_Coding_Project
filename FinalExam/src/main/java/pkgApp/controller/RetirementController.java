@@ -82,29 +82,6 @@ public class RetirementController implements Initializable {
 		}
 	}
 
-	private void validInputs() {
-		
-		if (txtMonthlySSI.getText().contains(",") || txtMonthlySSI.getText().contains("$")) {
-			txtMonthlySSI.setText(txtMonthlySSI.getText().replace(",",""));
-			txtMonthlySSI.setText(txtMonthlySSI.getText().replace("$",""));
-		}
-		
-		if (txtAnnualReturnWork.getText().contains("%")) {
-			txtAnnualReturnWork.setText(txtAnnualReturnWork.getText().replace("%",""));
-		}
-
-		if (txtAnnualReturnRetired.getText().contains("%")) {
-			txtAnnualReturnRetired.setText(txtAnnualReturnRetired.getText().replace("%",""));
-		}
-		
-		if (txtRequiredIncome.getText().contains(",") || txtRequiredIncome.getText().contains("$")) {
-			txtRequiredIncome.setText(txtRequiredIncome.getText().replace(",",""));
-			txtRequiredIncome.setText(txtRequiredIncome.getText().replace("$",""));
-		}
-
-		
-	}
-
 	private boolean isValid() {
 		String errorMessage = "";
 		if (txtYearsToWork.getText()==null || txtYearsToWork.getText().length()==0 || txtYearsToWork.getText().contains(".")) {
@@ -213,5 +190,28 @@ public class RetirementController implements Initializable {
 
 			return false;
 		} 	
-	}	
+	}
+	
+private void validInputs() {
+		
+		if (txtMonthlySSI.getText().contains(",") || txtMonthlySSI.getText().contains("$")) {
+			txtMonthlySSI.setText(txtMonthlySSI.getText().replace(",",""));
+			txtMonthlySSI.setText(txtMonthlySSI.getText().replace("$",""));
+		}
+		
+		if (txtAnnualReturnWork.getText().contains("%")) {
+			txtAnnualReturnWork.setText(txtAnnualReturnWork.getText().replace("%",""));
+		}
+
+		if (txtAnnualReturnRetired.getText().contains("%")) {
+			txtAnnualReturnRetired.setText(txtAnnualReturnRetired.getText().replace("%",""));
+		}
+		
+		if (txtRequiredIncome.getText().contains(",") || txtRequiredIncome.getText().contains("$")) {
+			txtRequiredIncome.setText(txtRequiredIncome.getText().replace(",",""));
+			txtRequiredIncome.setText(txtRequiredIncome.getText().replace("$",""));
+		}
+
+		
+	}
 }
