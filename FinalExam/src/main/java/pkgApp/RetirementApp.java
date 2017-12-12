@@ -10,7 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 
 public class RetirementApp extends Application {
-
+	private Stage primaryStage;
 	private RetirementController controller;
 	
 	public static void main(String[] args) {
@@ -44,5 +44,7 @@ public class RetirementApp extends Application {
 		}
 		
 	}
-
+	public Stage getPrimaryStage() {
+		return primaryStage;
+	}
 }

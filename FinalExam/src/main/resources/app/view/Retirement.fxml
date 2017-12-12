@@ -73,6 +73,13 @@
                </GridPane.margin>
             </HBox>
             <TextField fx:id="txtYearsToWork" prefHeight="25.0" prefWidth="62.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         	<TextField fx:id="txtAnnualReturnWork" prefHeight="25.0" prefWidth="62.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtYearsRetired" prefHeight="25.0" prefWidth="62.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="txtAnnualReturnRetired" prefHeight="25.0" prefWidth="62.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextField fx:id="txtRequiredIncome" prefHeight="25.0" prefWidth="62.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <TextField fx:id="txtMonthlySSI" prefHeight="25.0" prefWidth="62.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <TextField fx:id="txtNeedToSave" editable="false" prefHeight="25.0" prefWidth="62.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="txtSaveEachMonth" editable="false" prefHeight="25.0" prefWidth="62.0" GridPane.columnIndex="1" />
          </children>
       </GridPane>
    </center>
