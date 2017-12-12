@@ -64,16 +64,17 @@ public class RetirementController implements Initializable {
 		this.validInputs();
 
 		if (isValid()) {
-			Retirement retire = new Retirement();
-			retire.setdAnnualReturnWorking(Double.parseDouble(txtAnnualReturnWork.getText()));
-			retire.setdAnnualReturnRetired(Double.parseDouble(txtAnnualReturnRetired.getText()));
-			retire.setdRequiredIncome(Double.parseDouble(txtRequiredIncome.getText()));
-			retire.setdMonthlySSI(Double.parseDouble(txtMonthlySSI.getText()));
-			retire.setiYearsToWork(Integer.parseInt(txtYearsToWork.getText()));
-			retire.setiYearsRetired(Integer.parseInt(txtYearsRetired.getText()));
+			System.out.println("Succesful!");
+			Retirement retiree = new Retirement();
+			retiree.setdAnnualReturnWorking(Double.parseDouble(txtAnnualReturnWork.getText()));
+			retiree.setdAnnualReturnRetired(Double.parseDouble(txtAnnualReturnRetired.getText()));
+			retiree.setdRequiredIncome(Double.parseDouble(txtRequiredIncome.getText()));
+			retiree.setdMonthlySSI(Double.parseDouble(txtMonthlySSI.getText()));
+			retiree.setiYearsToWork(Integer.parseInt(txtYearsToWork.getText()));
+			retiree.setiYearsRetired(Integer.parseInt(txtYearsRetired.getText()));
 			
-			double needToSave = retire.TotalAmountSaved();
-			double saveEachMonth = retire.AmountToSave();
+			double needToSave = retiree.TotalAmountSaved();
+			double saveEachMonth = retiree.AmountToSave();
 			
 			txtSaveEachMonth.setText(NumberFormat.getCurrencyInstance().format(saveEachMonth));
 			txtNeedToSave.setText(NumberFormat.getCurrencyInstance().format(needToSave));
