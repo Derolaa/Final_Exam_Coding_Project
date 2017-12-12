@@ -64,15 +64,16 @@ public class RetirementController implements Initializable {
 		this.validInputs();
 
 		if (isValid()) {
-			System.out.println("Succesful!");
-			Retirement retiree = new Retirement();
-			retiree.setdAnnualReturnWorking(Double.parseDouble(txtAnnualReturnWork.getText()));
-			retiree.setdAnnualReturnRetired(Double.parseDouble(txtAnnualReturnRetired.getText()));
-			retiree.setdRequiredIncome(Double.parseDouble(txtRequiredIncome.getText()));
-			retiree.setdMonthlySSI(Double.parseDouble(txtMonthlySSI.getText()));
-			retiree.setiYearsToWork(Integer.parseInt(txtYearsToWork.getText()));
-			retiree.setiYearsRetired(Integer.parseInt(txtYearsRetired.getText()));
 			
+			double dAnnualReturnWorking = Double.parseDouble(txtAnnualReturnWork.getText());
+			double dAnnualReturnRetired = Double.parseDouble(txtAnnualReturnRetired.getText());
+			double dRequiredIncome = Double.parseDouble(txtRequiredIncome.getText());
+			double dMonthlySSI = Double.parseDouble(txtMonthlySSI.getText());
+			int iYearsToWork = Integer.parseInt(txtYearsToWork.getText());
+			int iYearsRetired = Integer.parseInt(txtYearsRetired.getText());
+			
+			Retirement retiree = new Retirement(iYearsToWork, dAnnualReturnWorking, iYearsRetired,
+					dAnnualReturnRetired, dRequiredIncome, dMonthlySSI);
 			double needToSave = retiree.TotalAmountSaved();
 			double saveEachMonth = retiree.AmountToSave();
 			
@@ -82,6 +83,12 @@ public class RetirementController implements Initializable {
 	}
 
 	private void validInputs() {
+		
+		if (txtMonthlySSI.getText().contains(",") || txtMonthlySSI.getText().contains("$")) {
+			txtMonthlySSI.setText(txtMonthlySSI.getText().replace(",",""));
+			txtMonthlySSI.setText(txtMonthlySSI.getText().replace("$",""));
+		}
+		
 		if (txtAnnualReturnWork.getText().contains("%")) {
 			txtAnnualReturnWork.setText(txtAnnualReturnWork.getText().replace("%",""));
 		}
@@ -95,10 +102,7 @@ public class RetirementController implements Initializable {
 			txtRequiredIncome.setText(txtRequiredIncome.getText().replace("$",""));
 		}
 
-		if (txtMonthlySSI.getText().contains(",") || txtMonthlySSI.getText().contains("$")) {
-			txtMonthlySSI.setText(txtMonthlySSI.getText().replace(",",""));
-			txtMonthlySSI.setText(txtMonthlySSI.getText().replace("$",""));
-		}
+		
 	}
 
 	private boolean isValid() {
