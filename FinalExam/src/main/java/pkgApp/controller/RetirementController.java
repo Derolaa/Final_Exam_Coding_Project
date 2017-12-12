@@ -62,7 +62,7 @@ public class RetirementController implements Initializable {
 	
 	@FXML
 	public void btnCalculate(ActionEvent event) {
-		//this.validInputs();
+		this.acceptable();
 
 		if (isValid()) {
 			
@@ -191,6 +191,27 @@ public class RetirementController implements Initializable {
 			alert.showAndWait();
 
 			return false;
-		} 	
+		}
 	}
-}
+		
+		private void acceptable() {
+
+			if (txtAnnualReturnWork.getText().contains("%")) {
+				txtAnnualReturnWork.setText(txtAnnualReturnWork.getText().replace("%",""));
+			}
+
+			if (txtAnnualReturnRetired.getText().contains("%")) {
+				txtAnnualReturnRetired.setText(txtAnnualReturnRetired.getText().replace("%",""));
+			}
+
+			if (txtRequiredIncome.getText().contains(",") || txtRequiredIncome.getText().contains("$")) {
+				txtRequiredIncome.setText(txtRequiredIncome.getText().replace(",",""));
+				txtRequiredIncome.setText(txtRequiredIncome.getText().replace("$",""));
+			}
+
+			if (txtMonthlySSI.getText().contains(",") || txtMonthlySSI.getText().contains("$")) {
+				txtMonthlySSI.setText(txtMonthlySSI.getText().replace(",",""));
+				txtMonthlySSI.setText(txtMonthlySSI.getText().replace("$",""));
+			}
+		}
+	}
