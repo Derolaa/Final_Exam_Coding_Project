@@ -1,6 +1,7 @@
 package pkgApp.controller;
 
 import java.net.URL;
+
 import java.text.NumberFormat;
 import java.util.ResourceBundle;
 
@@ -84,20 +85,7 @@ public class RetirementController implements Initializable {
 
 	private boolean isValid() {
 		String errorMessage = "";
-		if (txtYearsToWork.getText()==null || txtYearsToWork.getText().length()==0 || txtYearsToWork.getText().contains(".")) {
-			errorMessage += "Input should be a whole number greater than or equal to 0.\n";
-		
-		}else {
-			
-			try { 
-				Integer.parseInt( txtYearsToWork.getText() ); 
-				
-			}catch(NumberFormatException e) {
-				errorMessage += "Input should be a whole number greater than or equal to 0.\n";
-			}
-		}
-
-		if (txtAnnualReturnWork.getText()==null || txtAnnualReturnWork.getText().length()==0) {
+		if (!(!(txtAnnualReturnWork.getText()==null)) && !(txtAnnualReturnWork.getText().length()==0)) {
 			errorMessage += "Enter valid working annual return.\n";
 			
 		}else {
@@ -109,26 +97,8 @@ public class RetirementController implements Initializable {
 				errorMessage += "Enter a valid number for working annual return.\n";
 			}
 		}
-
-		if(Double.parseDouble(txtAnnualReturnWork.getText())>20.0 || Double.parseDouble(txtAnnualReturnWork.getText()) <0.0) {
-			errorMessage += "Input should be a working annual return between 0 and 20.\n";
-	}
-
-		if (txtYearsRetired.getText()==null || txtYearsRetired.getText().length()==0 || txtYearsRetired.getText().contains(".")) {
-			errorMessage += "Expected years retired must be a whole number.\n";
-
-		}else {
-
-			try { 
-				Integer.parseInt( txtYearsRetired.getText() ); 
-				
-			}catch(NumberFormatException e) {
-
-				errorMessage += "Input should be a whole number greater than or equal to 0.\n";
-			}
-		}
 		
-		if (txtAnnualReturnRetired.getText()==null || txtAnnualReturnRetired.getText().length()==0) {
+		if (!(!(txtAnnualReturnRetired.getText()==null)) && !(txtAnnualReturnRetired.getText().length()==0)) {
 			errorMessage += "Enter retired annual return.\n";
 
 		}else {
@@ -141,12 +111,8 @@ public class RetirementController implements Initializable {
 				errorMessage += "Enter a retired annual return. Number must be between 0 and 3.\n";
 			}
 		}
-
-		if(Double.parseDouble(txtAnnualReturnRetired.getText())>3.0 || Double.parseDouble(txtAnnualReturnRetired.getText()) <0.0) {
-				errorMessage += "Enter a retired annual return. Number must be between 0 and 3.\n";
-		}
-
-		if (txtRequiredIncome.getText()==null || txtRequiredIncome.getText().length()==0) {
+		
+		if (!(!(txtRequiredIncome.getText()==null)) && !(txtRequiredIncome.getText().length()==0)) {
 			errorMessage += "Enter required monthly income while retired. Number must be greater than or equal to 0.\n";
 			
 		}else {
@@ -160,8 +126,8 @@ public class RetirementController implements Initializable {
 				errorMessage += "Enter a valid number for required income. Number must be greater than or equal to 0.\n";
 			}
 		}
-
-		if (txtMonthlySSI.getText()==null || txtMonthlySSI.getText().length()==0) {
+		
+		if (!(!(txtMonthlySSI.getText()==null)) && !(txtMonthlySSI.getText().length()==0)) {
 			errorMessage += "Enter monthly SSI payment you will recieve during retirement. Number must be greater than or equal to 0.\n";
 
 		}else {
@@ -175,7 +141,43 @@ public class RetirementController implements Initializable {
 				errorMessage += "Enter a valid number for monthly SSI. Number must be greater than or equal to 0.\n";
 			}
 		}
+		
+		if (txtYearsToWork.getText()==null || txtYearsToWork.getText().length()==0 || txtYearsToWork.getText().contains(".")) {
+			errorMessage += "Years to work input should be a whole number greater than or equal to 0.\n";
+		
+		}else {
+			
+			try { 
+				Integer.parseInt( txtYearsToWork.getText() ); 
+				
+			}catch(NumberFormatException e) {
+				errorMessage += "Years to work input should be a whole number greater than or equal to 0.\n";
+			}
+		}
 
+		if(!(!(Double.parseDouble(txtAnnualReturnWork.getText())>20.0)) && !(Double.parseDouble(txtAnnualReturnWork.getText()) <0.0)) {
+			errorMessage += "Input should be a working annual return between 0 and 20.\n";
+	}
+
+		if (txtYearsRetired.getText()==null || txtYearsRetired.getText().length()==0 || txtYearsRetired.getText().contains(".")) {
+			errorMessage += "Expected years retired must be a whole number.\n";
+
+		}else {
+
+			try { 
+				Integer.parseInt( txtYearsRetired.getText() ); 
+				
+			}catch(NumberFormatException e) {
+
+				errorMessage += "Expected years retired must be a whole number greater than or equal to 0.\n";
+			}
+		}
+		
+		
+		if(!(!(Double.parseDouble(txtAnnualReturnRetired.getText())>3.0)) && !(Double.parseDouble(txtAnnualReturnRetired.getText()) <0.0)) {
+				errorMessage += "Enter a retired annual return. Number must be between 0 and 3.\n";
+		}
+	
 		if(errorMessage.length() ==0) {
 
 			return true;

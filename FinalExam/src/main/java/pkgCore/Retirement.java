@@ -22,10 +22,6 @@ public class Retirement {
 		this.dMonthlySSI = dMonthlySSI;
 
 	}
-
-	public Retirement() {
-
-	}
 	
 	public double AmountToSave() {
 		double dMonthsToWork = iYearsToWork * 12;
